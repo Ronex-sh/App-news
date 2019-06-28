@@ -15,18 +15,8 @@ class Singlepost extends StatefulWidget {
 class _SinglepostState extends State<Singlepost> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body: Container(
-        child: Text(''),
-
-
-        color: Colors.deepOrange
-      ),
-
-
+    return CustomScrollView(
+      
     );
   }
 }
