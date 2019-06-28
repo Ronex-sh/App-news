@@ -5,6 +5,8 @@ import 'package:untitled55/models/post.dart';
 
 import 'package:untitled55/uatility/data_uatility.dart';
 
+import '../single_post.dart';
+
 class Popular extends StatefulWidget {
   @override
   _PopularState createState() => _PopularState();
@@ -76,38 +78,47 @@ class _PopularState extends State<Popular> {
           color: Colors.grey.shade200,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: <Widget>[
-                SizedBox(height: 100, width: 120,
-                    child: Image(
-                      image: NetworkImage(post.featuredImage),
-                      fit: BoxFit.cover,)),
-                SizedBox(width: 12,),
+            child: GestureDetector(
+              onDoubleTap: (){
 
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      Text(post.title,
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600),),
-                      SizedBox(height: 12,),
-                      Row(
-                        children: <Widget>[
-                          Text(' helo lej ld d'),
-                          SizedBox(width: 110,),
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return
+                  Singlepost(post);
+                }));
+              },
+              child: Row(
+                children: <Widget>[
+                  SizedBox(height: 100, width: 120,
+                      child: Image(
+                        image: NetworkImage(post.featuredImage),
+                        fit: BoxFit.cover,)),
+                  SizedBox(width: 12,),
 
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.timer),
-                              Text('56 m')
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ],
+                  Expanded(
+                    child: Column(
+                      children: <Widget>[
+                        Text(post.title,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),),
+                        SizedBox(height: 12,),
+                        Row(
+                          children: <Widget>[
+                            Text(' helo lej ld d'),
+                            SizedBox(width: 110,),
+
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.timer),
+                                Text('56 m')
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

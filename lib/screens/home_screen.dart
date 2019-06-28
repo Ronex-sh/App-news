@@ -3,6 +3,10 @@ import 'package:untitled55/shared_ui/navigation_drawer.dart';
 import 'home_taps/favorite.dart';
 import 'home_taps/popular.dart';
 import 'home_taps/whats_new.dart';
+import 'package:untitled55/screens/pages/about.dart';
+import 'package:untitled55/screens/pages/contact.dart';
+import 'package:untitled55/screens/pages/help.dart';
+import 'package:untitled55/screens/pages/settings.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 enum popoutmenu{ // to make pop menu
-  HELP,CORECT,ABOUT,
+  HELP,CORECT,ABOUT,setting
 
 }
 
@@ -107,11 +111,51 @@ appBar: AppBar(
 
               child:Text('HELP-') ,
             ),
+            PopupMenuItem(
+              value: popoutmenu.HELP,
+
+              child:Text('setting-') ,
+            ),
 
           ];
 
         },onSelected: (popoutmenu k){
           //todo
+          switch(k){
+            case popoutmenu.HELP:
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                return Help();
+
+              }));
+
+              break;
+
+            case popoutmenu.ABOUT:
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                return AboutUs();
+
+              }));
+              break;
+
+            case popoutmenu.CORECT:
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                return Contact();
+
+              }));
+              break;
+            case popoutmenu.setting:
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+                return Setting();
+
+              }));
+              break;
+
+
+          }
 
 
 
