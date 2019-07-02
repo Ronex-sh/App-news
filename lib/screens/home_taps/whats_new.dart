@@ -77,7 +77,7 @@ class _WhatsNewState extends State<WhatsNew> {
           GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return Singlepost(postes);
+                return SinglePost(postes);
 
 
               }));
@@ -286,7 +286,7 @@ class _WhatsNewState extends State<WhatsNew> {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return Singlepost(post);
+          return SinglePost(post);
 
         }));
       },
@@ -351,7 +351,7 @@ class _WhatsNewState extends State<WhatsNew> {
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return
-            Singlepost(post);
+            SinglePost(post);
           }));
         },
         child: Column(

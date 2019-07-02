@@ -83,7 +83,7 @@ class _PopularState extends State<Popular> {
 
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return
-                  Singlepost(post);
+                  SinglePost(post);
                 }));
               },
               child: Row(

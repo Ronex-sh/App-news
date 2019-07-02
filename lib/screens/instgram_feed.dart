@@ -9,6 +9,8 @@ class InstagramFeed extends StatefulWidget {
 }
 
 class _InstagramFeedState extends State<InstagramFeed> {
+  List<int> id = [0,1,2];
+
   TextStyle _HashtagStyle = TextStyle(
     color: Colors.orange
   );
@@ -39,7 +41,7 @@ class _InstagramFeedState extends State<InstagramFeed> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
 
-                    _drawHeader(),
+                    _drawHeader(k),
                     _drawTitle(),
                     
                     _drawHashTags(),
@@ -59,7 +61,7 @@ class _InstagramFeedState extends State<InstagramFeed> {
 
   }
 
- Widget _drawHeader() {
+ Widget _drawHeader(k) {
 
 
       return Row(
@@ -93,7 +95,26 @@ class _InstagramFeedState extends State<InstagramFeed> {
    ),
           Row(
             children: <Widget>[
-              IconButton(icon: Icon(Icons.favorite,color: Colors.grey,), onPressed: (){}),
+              IconButton(icon: Icon(Icons.favorite,color: (id.contains(k))?Colors.red:Colors.grey),
+              onPressed: (){
+                if(id.contains(k)){
+                  id.remove(k);
+
+                }else{
+                  id.add(k);
+
+
+                }
+                setState(() {
+
+                });
+                print(id);
+
+              }
+
+
+              ),
+
               Transform.translate(
                   offset: Offset(-10, 0),
 

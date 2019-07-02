@@ -9,10 +9,21 @@ class FaceBookFeed extends StatefulWidget {
 }
 
 class _FaceBookFeedState extends State<FaceBookFeed> {
+  List<int> id;
+
+
+
   TextStyle _HashtagStyle = TextStyle(
       color: Colors.orange
   );
   @override
+  void initState(){
+    super.initState();
+    id=[1,2,3];
+
+  }
+  @override
+
   Widget build(BuildContext context) {
     return
 
@@ -39,7 +50,7 @@ class _FaceBookFeedState extends State<FaceBookFeed> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
 
-                  _drawHeader(),
+                  _drawHeader(k),
                   _drawTitle(),
 
                   _drawHashTags(),
@@ -62,7 +73,7 @@ class _FaceBookFeedState extends State<FaceBookFeed> {
 
 
 
-  Widget _drawHeader() {
+  Widget _drawHeader(k) {
 
 
     return Row(
@@ -96,7 +107,20 @@ class _FaceBookFeedState extends State<FaceBookFeed> {
         ),
         Row(
           children: <Widget>[
-            IconButton(icon: Icon(Icons.favorite,color: Colors.grey,), onPressed: (){}),
+            IconButton(icon: Icon(Icons.favorite,color: Colors.grey,),
+                onPressed: (){
+              if(id.contains(k)){
+                id.remove(k);
+
+              }else{
+
+                id.add(k);
+              }
+
+
+
+
+                }),
             Transform.translate(
                 offset: Offset(-10, 0),
 

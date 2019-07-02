@@ -44,7 +44,7 @@ class _SinglePostState extends State<SinglePost> {
              // ),
               background:Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: ExactAssetImage('assets/images/pg2.jpg'),fit: BoxFit.cover),
+                  image: DecorationImage(image: NetworkImage(widget.post.featuredImage),fit: BoxFit.fill),
                   gradient: LinearGradient(colors: [Colors.purpleAccent,Colors.red])
                 ),
               ),
@@ -53,12 +53,13 @@ class _SinglePostState extends State<SinglePost> {
           SliverList(delegate: SliverChildBuilderDelegate((context,index){
             if(index==0){
               return _DrawPost();
-            }else{
-              return Container(
-                height: 150,
-                color: getRandomColor(),
-              );
+            }
 
+            else if(index >=1 && index <24) {
+              return _comments();
+
+            }else if (index==24){
+              return _commentText();
             }
 
 
@@ -82,10 +83,89 @@ class _SinglePostState extends State<SinglePost> {
   }
  Widget _DrawPost()  {
 
-    return Container(
-      child: Text( widget.post.content),
+    return
+      Container(
+      child: Padding(
+        padding: const EdgeInsets.all(11.0),
+        child: Text( widget.post.content,style: TextStyle(fontSize: 20,letterSpacing: 1,height: 1.2),),
+      ),
       height: 300,
-      color: getRandomColor(),
+      color:  Colors.white    //getRandomColor(),
+    );
+  }
+
+  Widget _comments() {
+
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+
+             CircleAvatar(
+               backgroundImage: NetworkImage(widget.post.featuredImage),
+             ),
+              SizedBox(
+              width: 6,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('karrar '),
+                  Text('1 hour'),
+                ],
+              )
+            ],
+
+          ),
+          SizedBox(height: 12,),
+          Text('tarting input: tba=android.view.inputmethod.EditorInfo@f1a8408 nm : com.example.unt')
+        ],
+      ),
+    );
+
+  }
+
+  Widget _commentText() {
+    return Container(
+      color: Color.fromRGBO(233, 231, 233, 1),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+   Flexible(
+               child:   Padding(
+                 padding: const EdgeInsets.only(bottom: 16,left: 12),
+                 child: TextField(
+
+          decoration: InputDecoration(
+
+            border:InputBorder.none,
+
+
+
+            hintText: 'plese enter a search term',
+            fillColor: Color.fromRGBO(233, 231, 233, 1),
+            filled: true,
+
+
+
+
+
+          ),
+
+
+
+  ),
+               ),
+),FlatButton(onPressed: (){}, child: Text('send',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,color: Colors.purple,)))
+            ],
+          ),
+
+        ],
+
+      ),
     );
   }
 
