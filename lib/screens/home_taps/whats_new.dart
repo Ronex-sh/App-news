@@ -320,12 +320,15 @@ class _WhatsNewState extends State<WhatsNew> {
                       ),
                       Row(
                         children: <Widget>[
-                          Text(' helo lej ld d'),
+                          Text(' helo l'),
                           SizedBox(
-                            width: 110,
+                            width: 70,
                           ),
                           Row(
-                            children: <Widget>[Icon(Icons.timer),
+                            children: <Widget>[Padding(
+                              padding: const EdgeInsets.all(0.0),
+                              child: Icon(Icons.timer),
+                            ),
 
                             Text(parseHumanDateTime(post.dateWritten),style: TextStyle(fontSize: 13),)],
                           )

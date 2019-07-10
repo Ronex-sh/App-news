@@ -6,3 +6,4 @@ String All_Catogries_Api = '/api/categories';
 
 String catogries_api = '/api/posts/categories/';
 
+String auth_api='/api/token';

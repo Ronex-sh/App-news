@@ -87,7 +87,7 @@ class _InstagramFeedState extends State<InstagramFeed> {
              ],
            ),
            SizedBox(height: 8,),
-           Text(' fgfvvb ‏ 34 /05‏/2019',style: TextStyle(color: Colors.grey))
+           Text(' fgfvvb ‏ 34 /05‏/2019',style: TextStyle(color: Colors.grey.shade300))
          ],
        )
      ],

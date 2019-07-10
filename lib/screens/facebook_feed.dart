@@ -107,16 +107,18 @@ class _FaceBookFeedState extends State<FaceBookFeed> {
         ),
         Row(
           children: <Widget>[
-            IconButton(icon: Icon(Icons.favorite,color: Colors.grey,),
+            IconButton(icon: Icon(Icons.favorite,color:(id.contains(k))?Colors.red :Colors.grey.shade300,),
                 onPressed: (){
-              if(id.contains(k)){
-                id.remove(k);
+              setState(() {
+                if(id.contains(k)){
+                  id.remove(k);
 
-              }else{
+                }else{
 
-                id.add(k);
-              }
+                  id.add(k);
+                }
 
+              });
 
 
 

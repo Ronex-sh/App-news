@@ -33,6 +33,7 @@ class NewsApp extends StatelessWidget {
       home: _Screens,
       theme: AppTheme.appthemes, debugShowMaterialGrid: false,
 
+
     );
   }
 }
